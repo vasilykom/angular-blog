@@ -8,6 +8,7 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { PostPageComponent } from './post-page/post-page.component';
 import { PostComponent } from './shared/components/post/post.component';
 import {SharedModule} from './admin/shared/shared.module';
+import {AuthService} from './admin/shared/services/auth.service';
 
 @NgModule({
   declarations: [
@@ -18,9 +19,9 @@ import {SharedModule} from './admin/shared/shared.module';
     PostComponent
   ],
   imports: [
-    SharedModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

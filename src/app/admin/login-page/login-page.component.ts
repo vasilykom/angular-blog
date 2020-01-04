@@ -31,7 +31,7 @@ export class LoginPageComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.form)
+    console.log(this.form);
     if (this.form.invalid) {
       return;
     }

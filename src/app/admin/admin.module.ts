@@ -12,12 +12,17 @@ import {AuthService} from './shared/services/auth.service';
 import {SharedModule} from './shared/shared.module';
 
 @NgModule({
-  declarations: [AdminLayoutComponent, LoginPageComponent, EditPageComponent, DashboardPageComponent, CreatePageComponent],
+  declarations: [
+    AdminLayoutComponent,
+    LoginPageComponent,
+    EditPageComponent,
+    DashboardPageComponent,
+    CreatePageComponent],
   imports: [
-    SharedModule,
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
+    SharedModule,
     RouterModule.forChild([
       {
         path: '', component: AdminLayoutComponent, children: [
