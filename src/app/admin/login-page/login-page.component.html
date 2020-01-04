@@ -1,2 +1,21 @@
-<p>login-page works!</p>
-<router-outlet></router-outlet>
+<form class="card">
+  <h1>Administrator login</h1>
+  <div class="form-control">
+    <label for="email">Email</label>
+    <input id="email" type="email">
+    <div class="validation">
+      <small>some error about email</small>
+    </div>
+  </div>
+
+  <div class="form-control">
+    <label for="password">Password</label>
+    <input id="password" type="password">
+    <div class="validation">
+      <small>some error about password</small>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Login</button>
+
+</form>
