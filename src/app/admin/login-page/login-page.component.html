@@ -1,21 +1,51 @@
-<form class="card">
+<form class="card" [formGroup]="form" (ngSubmit)="submit()">
   <h1>Administrator login</h1>
-  <div class="form-control">
+
+  <div class="form-control"
+        [ngClass]="{invalid: form.get('email').touched && form.get('email').invalid}"
+  >
     <label for="email">Email</label>
-    <input id="email" type="email">
-    <div class="validation">
-      <small>some error about email</small>
+    <input id="email" type="email" formControlName="email">
+    <div
+      *ngIf="form.get('email').touched && form.get('email').invalid"
+      class="validation">
+
+      <small *ngIf="form.get('email').errors.required">
+        You need to fill in your email
+      </small>
+
+      <small *ngIf="form.get('email').errors.email">
+        Your email is not valid
+      </small>
+
+
     </div>
   </div>
 
-  <div class="form-control">
+  <div class="form-control"
+       [ngClass]="{invalid: form.get('password').touched && form.get('password').invalid}"
+  >
     <label for="password">Password</label>
-    <input id="password" type="password">
-    <div class="validation">
-      <small>some error about password</small>
+    <input id="password" type="password" formControlName="password">
+    <div
+         *ngIf="form.get('password').touched && form.get('password').invalid"
+         class="validation"
+    >
+      <small *ngIf="form.get('password').errors.required">
+        some error about password 1
+      </small>
+      <small *ngIf="form.get('password').errors.minlength">
+        Your password should be not less than
+        {{form.get('password').errors.minlength.requiredLength}} symbols.
+        Now it is {{form.get('password').errors.minlength.actualLength}}
+
+      </small>
     </div>
   </div>
 
-  <button type="submit" class="btn btn-primary">Login</button>
+  <button type="submit"
+          class="btn btn-primary"
+          [disabled]="form.invalid"
+  >Login</button>
 
 </form>
